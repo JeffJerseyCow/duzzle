@@ -1,22 +1,28 @@
 GOCMD=go
+GOFMT=$(GOCMD)fmt
 GOMOD=$(GOCMD) mod
 GOBUILD=$(GOCMD) build
 GOINSTALL=$(GOCMD) install
 
+VERSION=$(shell git describe)
+
 INFILES=duzzle.go
-OUTFILES=go.mod \
-	 duzzle \
-	 go.sum 
+OUTFILES=duzzle
+
 INSTALLFILES=/usr/local/bin/duzzle
 
-all: build
+all: fmt \
+     mod \
+     build
 
-mod: 
-	$(GOMOD) init github.com/jeffjerseycow/duzzle
+fmt:
+	$(GOFMT) -w .
 
-build: $(INFILES) \
-       mod
-	$(GOBUILD)
+mod:
+	$(GOMOD) init
+
+build: $(INFILES)
+	$(GOBUILD) -ldflags="-X main.version=${VERSION}"
 
 install: $(OUTFILES)
 	cp duzzle /usr/local/bin

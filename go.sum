@@ -1,0 +1,6 @@
+github.com/jeffjerseycow/duzzle v0.0.0-20181122094648-97aaee48e35f h1:OtAR+YDhUd+3w13GlIeuC5AroFW8dxjlj9u1D6yJTYg=
+github.com/jeffjerseycow/duzzle v0.0.0-20181122094648-97aaee48e35f/go.mod h1:c11VJKukHUST378Av1BBiTEF283/LYSCmaZGaH894Eo=
+github.com/jeffjerseycow/gdb-mi v0.0.1 h1:F1ItSSJ0AIedE76wtwS2xKoey85r+JrSARIVRCFOZn0=
+github.com/jeffjerseycow/gdb-mi v0.0.1/go.mod h1:7Byz/c6C5+JSq35FE6d5cTpZ27qRsKCi3mn88+d2J6A=
+github.com/kr/pty v1.1.3 h1:/Um6a/ZmD5tF7peoOJ5oN5KMQ0DrGVQSXLNwyckutPk=
+github.com/kr/pty v1.1.3/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=

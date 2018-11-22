@@ -5,7 +5,10 @@ import (
 	"github.com/jeffjerseycow/duzzle/pkg"
 )
 
+var version = "undefined"
+
 func main() {
+	fmt.Println("Version", version)
 	ctx, _ := duzzle.New("x86_64")
 
 	ctx.Connect("127.0.0.1", "4444")
