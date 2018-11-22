@@ -12,7 +12,6 @@ OUTFILES=duzzle
 INSTALLFILES=/usr/local/bin/duzzle
 
 all: fmt \
-     mod \
      build
 
 fmt:

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/jeffjerseycow/duzzle/pkg"
+	"github.com/JeffJerseyCow/duzzle/pkg"
 )
 
 var version = "undefined"
