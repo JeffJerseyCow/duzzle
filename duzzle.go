@@ -2,26 +2,30 @@ package main
 
 import (
 	"fmt"
-	"github.com/JeffJerseyCow/duzzle/pkg"
+	"github.com/JeffJerseyCow/duzzle/core"
 )
 
 var version = "undefined"
 
 func main() {
-	fmt.Println("Version", version)
+	IPV4Addr := "127.0.0.1"
+	Port := "4444"
+	var Breakpoint uint64 = 0x555555559900
 	ctx, _ := duzzle.New("x86_64")
-
-	ctx.Connect("127.0.0.1", "4444")
-
-	fmt.Printf("Connected to %s:%s\n", "127.0.0.1", "4444")
-
-	ctx.Breakpoint(0x555555559900)
-
+	defer ctx.Exit()
+	ctx.Connect(IPV4Addr, Port)
+	defer ctx.Disconnect()
+	fmt.Println(fmt.Sprintf("Connected to: %s:%s", IPV4Addr, Port))
+	ctx.Breakpoint(Breakpoint)
+	fmt.Println(fmt.Sprintf("Set breakpoing: 0x%x", Breakpoint))
 	ctx.Continue()
+	fmt.Println("Continuting execution")
+	ctx.WaitBreak(Breakpoint)
+	fmt.Println(fmt.Sprintf("Hit breakpoint: 0x%x", Breakpoint))
+	segmentMap, _ := ctx.Map()
 
-	ctx.WaitBreak(0x555555559900)
+	for _, segment := range segmentMap {
+		fmt.Println(segment)
+	}
 
-	ctx.Disconnect()
-
-	ctx.Exit()
 }
